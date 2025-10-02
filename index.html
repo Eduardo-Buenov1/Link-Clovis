@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat Amazon Connect</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #f3f4f6;
+    }
+    h1 {
+      color: #111827;
+    }
+    .btn {
+      padding: 12px 24px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .btn:hover {
+      background: #1d4ed8;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bem-vindo ao Atendimento</h1>
+  <p>Clique no botão abaixo para iniciar o chat:</p>
+  <button class="btn" id="startChat">Iniciar Chat</button>
+
+  <!-- Script Amazon Connect -->
+  <script src="https://demoprevendas1.my.connect.aws/connectwidget/static/amazon-connect-chat-interface-client.js"></script>
+
+  <script>
+    // Função para iniciar o chat
+    document.getElementById("startChat").addEventListener("click", function() {
+      amazon_connect('initialize', {
+        region: "us-east-1", // região da sua instância AWS
+        instanceId: "COLOQUE_SEU_INSTANCE_ID_AQUI",
+        contactFlowId: "COLOQUE_SEU_CONTACT_FLOW_ID_AQUI",
+        apiGatewayEndpoint: "COLOQUE_SEU_ENDPOINT_AQUI"
+      });
+    });
+  </script>
+</body>
+</html>

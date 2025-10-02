@@ -1,53 +1,14 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <title>Chat Amazon Connect</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background: #f3f4f6;
-    }
-    h1 {
-      color: #111827;
-    }
-    .btn {
-      padding: 12px 24px;
-      background: #2563eb;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    .btn:hover {
-      background: #1d4ed8;
-    }
-  </style>
-</head>
-<body>
-  <h1>Bem-vindo ao Atendimento</h1>
-  <p>Clique no botão abaixo para iniciar o chat:</p>
-  <button class="btn" id="startChat">Iniciar Chat</button>
+<script type="text/javascript">
+  (function(w, d, x, id){
+    s=d.createElement('script');
+    s.src='https://demoprevendas1.my.connect.aws/connectwidget/static/amazon-connect-chat-interface-client.js';
+    s.async=1;
+    s.id=id;
+    d.getElementsByTagName('head')[0].appendChild(s);
+    w[x] =  w[x] || function() { (w[x].ac = w[x].ac || []).push(arguments) };
+  })(window, document, 'amazon_connect', '8e4207c6-0ea7-4649-a607-ba5f2fb602bb');
+  amazon_connect('styles', { iconType: 'CHAT', openChat: { color: '#ffffff', backgroundColor: '#e3262e' }, closeChat: { color: '#ffffff', backgroundColor: '#e3262e'} });
+  amazon_connect('snippetId', 'QVFJREFIaXdlaTllQXR1SnQyK1JZc1Z3dWE3clBZQjQvWm15emlVb25scEltc3BJNmdGWm9sVkhtTWhBcGlaZFFxRUkrNzdWQUFBQWJqQnNCZ2txaGtpRzl3MEJCd2FnWHpCZEFnRUFNRmdHQ1NxR1NJYjNEUUVIQVRBZUJnbGdoa2dCWlFNRUFTNHdFUVFNUytQZGV5OHVhYVJWQUtuTUFnRVFnQ3Z5VExQRkt4a2tCNGRMalZrcFJqQmJKTlRQKzFsMjNhNGxJNHRCbHpDWk9ySGQ0bnpDbTd2MW1GRjM6Olh4ZFZsZHd4QjFxZE5DNmdqcjBscVNlQXNhYm1XUnBYM2dzY0hQMFdIZ0NEejFZR2FtRCsrTnBLVXVJZE5zZjZrS0NlZHpCWCt4YUJJVnlZRGZaVGNxNTVoTEdCTzdWTXNIdTZQOTVHMWVYbUZNeXMrV0xRbkp4d2ZxY0ZTMGhOcG5kMXJPWkFRQXlncyt6WUlkdEVlWnJXNll4M215WT0=');
+  amazon_connect('supportedMessagingContentTypes', [ 'text/plain', 'text/markdown', 'application/vnd.amazonaws.connect.message.interactive', 'application/vnd.amazonaws.connect.message.interactive.response' ]);
+</script>
 
-  <!-- Script Amazon Connect -->
-  <script src="https://demoprevendas1.my.connect.aws/connectwidget/static/amazon-connect-chat-interface-client.js"></script>
-
-  <script>
-    // Função para iniciar o chat
-    document.getElementById("startChat").addEventListener("click", function() {
-      amazon_connect('initialize', {
-        region: "us-east-1", // região da sua instância AWS
-        instanceId: "COLOQUE_SEU_INSTANCE_ID_AQUI",
-        contactFlowId: "COLOQUE_SEU_CONTACT_FLOW_ID_AQUI",
-        apiGatewayEndpoint: "COLOQUE_SEU_ENDPOINT_AQUI"
-      });
-    });
-  </script>
-</body>
-</html>
